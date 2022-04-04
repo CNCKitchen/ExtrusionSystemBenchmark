@@ -1,6 +1,12 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+# Extrusion System Benchmark
+
+# Copyright (c) Julian Schill <j.schill@web.de>
+# All rights reserved.
+# Licensed under the MIT license. See LICENSE file in the project root for details.
+
 from extrusionsystembenchmark import esb
 from settings import esb_settings
     

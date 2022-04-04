@@ -1,3 +1,9 @@
+# GCode Helper
+
+# Copyright (c) Julian Schill <j.schill@web.de>
+# All rights reserved.
+# Licensed under the MIT license. See LICENSE file in the project root for details.
+
 import math
 
 class gcode_helper:

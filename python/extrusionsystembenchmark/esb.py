@@ -1,3 +1,9 @@
+# Extrusion System Benchmark GCode Generator
+
+# Copyright (c) Julian Schill <j.schill@web.de>
+# All rights reserved.
+# Licensed under the MIT license. See LICENSE file in the project root for details.
+
 import math
 from . import gcode
 
