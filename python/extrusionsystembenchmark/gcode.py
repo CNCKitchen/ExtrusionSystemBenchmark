@@ -47,7 +47,7 @@ class gcode_helper:
 
     def set_extruder_temp(self, temp):
         self.gcode_line("")
-        self.comment("####### {}°C".format(temp))
+        self.comment("####### {}C".format(temp))
         self.gcode_line("G4 S0 ; Dwell")
         self.gcode_line("M109 S{} R{}".format(temp, temp))
 
@@ -78,7 +78,7 @@ class gcode_helper:
     def flow_and_temp_msg(self, flow, temp):
         self.gcode_line( "")
         self.comment("####### {}mm3/s".format(flow))
-        self.gcode_line( "M117 {}°C // {}mm3/s".format(temp, flow))
+        self.gcode_line( "M117 {}C // {}mm3/s".format(temp, flow))
     
     def feedrate_from_flow(self, flow_rate, amount, movement_length, filament_diameter):
         filament_cross_section = math.pi/4.0 * filament_diameter**2 
