@@ -1,0 +1,41 @@
+form.form-example {
+    display: table;
+}
+
+div.form-example {
+    display: table-row;
+}
+
+label,
+input {
+    display: table-cell;
+    margin-bottom: 10px;
+}
+
+label {
+    padding-right: 10px;
+}
+
+.scroll-bg {
+
+    background: rgb(255, 255, 255);
+    width: 400px;
+
+
+}
+
+.scroll-div {
+    width: auto;
+    background: rgb(255, 255, 255);
+    height: 35% auto;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.scroll-object {
+
+
+    font-size: 15px;
+    padding: 20 px;
+
+}
