@@ -16,26 +16,13 @@ label {
     padding-right: 10px;
 }
 
-.scroll-bg {
-
-    background: rgb(255, 255, 255);
-    width: 400px;
+.scroll {
 
 
-}
-
-.scroll-div {
-    width: auto;
-    background: rgb(255, 255, 255);
-    height: 35% auto;
+    height: 400px;
+    background: #f1f1f1;
+    padding: 10px;
     overflow: hidden;
     overflow-y: scroll;
-}
-
-.scroll-object {
-
-
-    font-size: 15px;
-    padding: 20 px;
 
 }
