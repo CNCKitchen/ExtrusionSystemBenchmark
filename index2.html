@@ -12,9 +12,7 @@
 </head>
 
 <body>
-
     <div>
-
         <div class="container-fluid">
             <h1>CNC Kitchen Hotend Benchmark</h1>
             <div class="row">
@@ -23,12 +21,12 @@
                     <form class="row g-3 col" id="data">
                         <div class="col-md-3">
                             <label for="number" class="form-label">Bed Width</label>
-                            <input type="number" class="form-control" value="150" id="bedWidth" required>
+                            <input type="number" class="form-control" value="220" id="bedWidth" required>
                         </div>
 
                         <div class="col-md-3">
                             <label for="number" class="form-label"> Bed Length: </label>
-                            <input type="number" class="form-control" value="150" id="bedLength" required>
+                            <input type="number" class="form-control" value="220" id="bedLength" required>
                         </div>
                         <div class="col-md-3">
                             <label for="number" class="form-label">Bed Margin: </label>
@@ -115,7 +113,7 @@
                         </div>
                         <div class="col-md-3">
                             <label for="number" class="form-label">Steps: </label>
-                            <input type="number" class="form-control" value="4" id="flowSteps" required>
+                            <input type="number" class="form-control" value="8" id="flowSteps" required>
                         </div>
                         <div class="col-md-3">
                             <label for="number" class="form-label">End Flow: </label>
@@ -135,7 +133,7 @@
                         </div>
                         <div class="col-md-3">
                             <label for="number" class="form-label">Steps: </label>
-                            <input type="number" class="form-control" value="1" id="tempSteps" required>
+                            <input type="number" class="form-control" value="3" id="tempSteps" required>
                         </div>
                         <div class="col-md-3">
                             <label for="number" class="form-label">End Flow: </label>
@@ -146,32 +144,33 @@
                             <input type="text" value="Brand of Printer" id="comment" required>
                         </div>
 
+                        <div class="row mt-3">
+                            <div class="col-2">
+                                <button type="submit" class="btn btn-primary">Generate</button>
+                            </div>
 
-                        <div class="col-12">
-                            <button type="submit" class="btn btn-primary">Generate</button>
+                            <div class="col-2">
+                                <button type="reset" class="btn btn-secondary">Reset</button>
+                            </div>
                         </div>
                     </form>
                 </div>
                 <div class="col">
-                    <div class="row  h-50">
-
-                        <div class="col w-50 border m-1">
+                    <div class="row">
+                        <div class="col border m-1">
                             <h3>Bed distribution</h3>
                             <img src="photo1.jpg" class="card-img-top" alt="...">
                         </div>
-                        <div class="col w-50 border m-1">
+                        <div class="col border m-1">
                             <h3>Print distribution</h3>
                             <img src="photo2.jpg" class="card-img-top" alt="...">
                         </div>
                     </div>
-
-                    <div class="row  h-50">
-                        <h2 id="gcode ">G-CODE</h2>
-
-                        <div class="scroll-bg">
-                            <div class="scroll-div">
-                                <div class="scroll-object border h-100" id="code">
-                                </div>
+                    <div class="row">
+                        <div class="col">
+                            <h2 id="gcode">G-CODE</h2>
+                            <div class="card scroll">
+                                <p class="card-text" id="code"> Here will be the gcode.</p>
                             </div>
                         </div>
                     </div>
@@ -179,7 +178,6 @@
             </div>
         </div>
     </div>
-
 
     <script src="app.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
