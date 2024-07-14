@@ -6,7 +6,7 @@ Function writeLine(writeString As String)
 End Function
 
 Sub GenerateGCode()
-Dim direction As Integer
+Dim direction, xdirection, startColIndex, endColIndex, steps As Integer
 Dim bedWidth, bedLength, bedMargin, filamentDiameter, primeLength, primeAmount, primeSpeed, retractionDistance, retractionSpeed, xSpacing, ySpacing, startFlow, flowOffset, flowSteps, endFlow, startTemp, tempOffset, tempSteps, movementSpeed, stabilizationTime, wipeLength, blobHeight, extrusionAmount, extrusionSpeed, fanSpeed, bedTemp, bedLengthSave As Double
 
 currentOutputLine = 1
@@ -32,19 +32,20 @@ retractionSpeed = Worksheets("Settings").Cells(16, 2).Value
 blobHeight = Worksheets("Settings").Cells(18, 2).Value
 extrusionAmount = Worksheets("Settings").Cells(19, 2).Value
 
-xSpacing = Worksheets("Settings").Cells(22, 2).Value
-ySpacing = Worksheets("Settings").Cells(23, 2).Value
+xSpacing = Worksheets("Settings").Cells(23, 2).Value
+ySpacing = Worksheets("Settings").Cells(24, 2).Value
 
-startFlow = Worksheets("Settings").Cells(27, 2).Value
-flowOffset = Worksheets("Settings").Cells(28, 2).Value
-flowSteps = Worksheets("Settings").Cells(29, 2).Value
-endFlow = Worksheets("Settings").Cells(30, 2).Value
+startFlow = Worksheets("Settings").Cells(28, 2).Value
+flowOffset = Worksheets("Settings").Cells(29, 2).Value
+flowSteps = Worksheets("Settings").Cells(30, 2).Value
+endFlow = Worksheets("Settings").Cells(31, 2).Value
 
-startTemp = Worksheets("Settings").Cells(33, 2).Value
-tempOffset = Worksheets("Settings").Cells(34, 2).Value
-tempSteps = Worksheets("Settings").Cells(35, 2).Value
+startTemp = Worksheets("Settings").Cells(34, 2).Value
+tempOffset = Worksheets("Settings").Cells(35, 2).Value
+tempSteps = Worksheets("Settings").Cells(36, 2).Value
 
 direction = Worksheets("Settings").Cells(21, 2).Value
+xdirection = Worksheets("Settings").Cells(22, 2).Value
 
 'Clear output sheet
 Sheets("Output").Cells.Clear
@@ -79,6 +80,7 @@ writeLine ("; startTemp = " & startTemp)
 writeLine ("; tempOffset = " & tempOffset)
 writeLine ("; tempSteps = " & tempSteps)
 writeLine ("; direction = " & direction)
+writeLine ("; xdirection = " & xdirection)
 writeLine ("")
 
 'Create the output
@@ -108,8 +110,18 @@ If direction = 1 Then
     ySpacing = ySpacing * -1
 End If
 
+If xdirection = -1 Then
+    startColIndex = tempSteps
+    endColIndex = 1
+    steps = -1
+Else
+    startColIndex = 1
+    endColIndex = tempSteps
+    steps = 1
+End If
+
 'DoE column
-For c = 1 To tempSteps
+For c = startColIndex To endColIndex Step steps
     'Check if "Fill Mode" is active
     If tempOffset = 0 And c > 1 Then
         startFlow = startFlow + flowSteps * flowOffset
